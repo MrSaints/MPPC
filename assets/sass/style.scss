@@ -1,0 +1,33 @@
+/*!
+ * Theme Name: Malaysia Public Policy Competition
+ * Author: Ian Lai
+ * Author URI: http://fyianlai.com/
+ * Description: A responsive theme developed for ICMS MPPC.
+ * Version: 2.0
+ * Text Domain: mppc
+ */
+
+// Compass
+@import "compass";
+
+// Global Foundation Settings
+@import "partial/settings";
+
+// Normalize
+@import "vendor/normalize";
+
+// Foundation
+@import "foundation";
+
+// Web Fonts
+@import "vendor/font-awesome";
+
+// Application
+@import "partial/modular-scale";
+@import "partial/application";
+@import "partial/header";
+@import "partial/front";
+@import "partial/index";
+@import "partial/content";
+@import "partial/sidebar";
+@import "partial/media";

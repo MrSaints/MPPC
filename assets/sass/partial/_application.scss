@@ -1,0 +1,35 @@
+// Wordpress
+body.admin-bar header.fixed { top: 28px !important; }
+img#wpstats{ overflow:hidden; position:absolute; top:0; width:0px; height:0px; }
+.infinite-scroll .pager { display: none }
+
+// Facebook
+.fb-comments, .fb-comments span[style], .fb-comments iframe[style] { 
+    width: 100% !important;
+}
+
+body {
+    background: image-url('background.jpg') no-repeat top center fixed;
+    @include background-size(cover);
+
+    &:after {
+        content: '';
+        background: transparent image-url('pattern.png') repeat top left;
+        bottom: 0;
+        left: 0;
+        position: fixed;
+        right: 0;
+        top: 0;
+    }
+}
+
+img { vertical-align: bottom }
+
+header, .block {
+    position: relative;
+    z-index: 5;
+}
+
+header, .jumbotron {
+    font-family: 'Francois One', sans-serif;
+}

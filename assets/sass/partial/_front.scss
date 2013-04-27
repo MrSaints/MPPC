@@ -1,0 +1,90 @@
+/*
+ * Static front
+ */
+.jumbotron {
+    text-align: center;
+    .title, .date {
+        color: #FFF;
+        font-family: inherit;
+        font-weight: normal;
+        text-shadow: 0 1px 0 #000;
+        text-transform: uppercase;
+    }
+        .title {
+            border: 4px double #FFF;
+            border-left: none;
+            border-right: none;
+        }
+
+    .button {
+        font-family: 'Roboto', sans-serif;
+    }
+
+    .action {
+        background: image-url('buttons.png') no-repeat 0 0;
+        border: none;
+        box-shadow: -3px 5px 10px 0 rgba(0, 0, 0, .3);
+        font-weight: bold;
+        line-height: 45px;
+        padding: 0;
+        text-transform: uppercase;
+        text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
+        width: 200px;
+
+        &.learn {
+            &:after {
+                content: '';
+                font-family: 'Lobster', cursive;
+                font-size: emCalc(24px);
+                font-weight: normal;
+                color: #FFF;
+                left: 220px;
+                line-height: 45px;
+                position: absolute;
+            }
+            &:hover {
+                background-position: -210px 0;
+                box-shadow: -3px 5px 10px 0 rgba(0, 0, 0, .5);
+            }
+        }
+        &.participate {
+            background-position: 0 -45px;
+            box-shadow: 3px 5px 10px 0 rgba(0, 0, 0, .3);
+            &:hover {
+                background-position: -210px -45px;
+                box-shadow: 3px 5px 10px 0 rgba(0, 0, 0, .5);
+            }
+        }
+    }
+    
+    .info {
+        background: image-url('heading.png') repeat;
+        border-top: 1px solid lighten(#000, 10%);
+        border-bottom: 1px solid lighten(#000, 5%);
+        box-shadow: inset 0 -5px 20px 0 rgba(0, 0, 0, .5);
+        margin: 12% auto 0;
+        padding: 2em 0;
+        text-align: left;
+        text-shadow: 0 2px 0 #000;
+        
+        a.th {
+            border: 1px solid lighten(#000, 20%);
+            box-shadow: 0 0 5px 0 rgba(0, 0, 0, .5);
+            padding: .5em;
+            &:hover {
+                border: 1px solid lighten(#000, 30%);
+                box-shadow: 0 0 8px 0 rgba(0, 0, 0, .6);
+            }
+        }
+        
+        h5 {
+            color: #FFF;
+            text-transform: uppercase;
+            margin-bottom: 1.5em;
+        }
+    }
+
+    .map {
+        height: 250px;
+    }
+}

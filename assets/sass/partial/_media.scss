@@ -1,0 +1,12 @@
+@media #{$xmedium} {
+    .action.learn:after {
+        content: 'Or' !important;
+    }
+}
+
+@media #{$small} {
+    .logo {
+        position: relative;
+        top: -35px;
+    }
+}

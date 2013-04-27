@@ -1,0 +1,23 @@
+// Required global settings and mixins for Foundation
+@import "foundation/foundation-global";
+
+$header-font-family: "Source Sans Pro", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+
+$primary-bg: #292929;
+$secondary-bg: #2bbfbd;
+
+$primary-color: #f29b30;
+$secondary-color: #292929;
+
+$topbar-height: 70px;
+$topbar-link-weight: normal;
+$topbar-menu-link-weight: normal;
+
+$topbar-title-font-size: emCalc(18px);
+$topbar-link-font-size: emCalc(16px);
+$topbar-menu-link-font-size: emCalc(16px);
+
+$h1-font-size: emCalc(48px);
+
+$xmedium-screen: emCalc(1024px);
+$xmedium: "only screen and (min-width:"#{$xmedium-screen}")";
