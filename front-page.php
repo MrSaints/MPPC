@@ -31,27 +31,34 @@
         <div class="row">
             <div class="large-6 columns sponsors">
                 <h5>Our partners &amp; sponsors</h5>
-                <ul class="large-block-grid-3">
+                <ul class="large-block-grid-2">
+                    <li><a href="#" class="th">
+                        <img src="<?php echo get_template_directory_uri() ?>/assets/img/logos/JCF.png" 
+                            alt="Jeffrey Cheah Foundation" />
+                    </a></li>
                     <li><a href="#" class="th">
                         <img src="<?php echo get_template_directory_uri() ?>/assets/img/logos/talentcorp.png" 
-                            alt="" />
+                            alt="TalentCorp Malaysia" />
                     </a></li>
                     <li><a href="#" class="th">
                         <img src="<?php echo get_template_directory_uri() ?>/assets/img/logos/ICAEW.png" 
-                            alt="" />
+                            alt="ICAEW Chartered Accountants" />
                     </a></li>
                     <li><a href="#" class="th">
                         <img src="<?php echo get_template_directory_uri() ?>/assets/img/logos/maybank.jpg" 
-                            alt="" />
+                            alt="Maybank" />
                     </a></li>
                 </ul>
             </div>
-            <div class="large-6 columns">
-                <h5>Latest tweets</h5>
+            <div class="large-6 columns tweets">
+                    <a class="twitter-timeline" href="https://twitter.com/MPPC2013"
+                        data-widget-id="334867661685157889" 
+                        data-link-color="#f08f18" 
+                        data-chrome="transparent noscrollbar nofooter"
+                        data-theme="dark">Tweets by @MPPC2013</a>
             </div>
         </div>
     </div>
-    <div class="map">&nbsp;</div>
 </div>
 
 <?php get_footer() ?>
