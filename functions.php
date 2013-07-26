@@ -7,7 +7,10 @@ define ('DISALLOW_FILE_EDIT', true);
 if (!function_exists('mppc_setup')) {
     function mppc_setup () {
         // Navigation
-        register_nav_menu('primary', __('Primary Menu', 'mppc'));
+        register_nav_menus(array(
+            'header', __('Header Menu', 'mppc'),
+            'footer', __('Footer Menu', 'mppc'),
+        ));
         
         // Sidebar
         $sidebar = array(
@@ -37,9 +40,9 @@ if (!function_exists('mppc_load_media')) {
         // CSS
         wp_enqueue_style(
             'google-web-fonts',
-            'http://fonts.googleapis.com/css?family=Francois+One|Source+Sans+Pro:400,700|Roboto:700|Lobster'
+            'http://fonts.googleapis.com/css?family=Francois+One'
         );
-        wp_enqueue_style('mppc-style', get_stylesheet_uri(), array(), '1.2');
+        wp_enqueue_style('mppc-style', get_stylesheet_uri(), array(), '2.0');
 
         /*
          * JS Header
@@ -51,40 +54,42 @@ if (!function_exists('mppc_load_media')) {
         // Modernizr
         wp_enqueue_script('modernizr', '//cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js');
 
+        // Leaflet JS (Maps)
+        if (is_front_page()) {
+            wp_enqueue_style(
+                'leaflet',
+                'http://cdn.leafletjs.com/leaflet-0.6.2/leaflet.css'
+            );
+            wp_enqueue_script(
+                'leaflet',
+                'http://cdn.leafletjs.com/leaflet-0.6.2/leaflet.js'
+            );
+        }
+
         /*
          * JS Footer
          */
-        // Foundation
+        // Bootstrap
         wp_enqueue_script(
-            'foundation',
-            get_template_directory_uri() . '/assets/js/foundation/foundation.js',
-            array('jquery'), '1.0', true
-        );
-        wp_enqueue_script(
-            'foundation-topbar',
-            get_template_directory_uri() . '/assets/js/foundation/foundation.topbar.js',
-            array('jquery'), '1.0', true
+            'bootstrap',
+            get_template_directory_uri() . '/assets/js/vendor/bootstrap.js',
+            array('jquery'), '2', true
         );
         // MPPC
         wp_enqueue_script(
             'mppc-plugin',
             get_template_directory_uri() . '/assets/js/plugins.js',
-            array('jquery'), '1.2', true
+            array('jquery'), '2.0', true
         );
         wp_enqueue_script(
             'mppc-script',
             get_template_directory_uri() . '/assets/js/script.js',
-            array('jquery'), '1.2', true
+            array('jquery'), '2.0', true
         );
+
         // Comments
         if (is_singular() && comments_open() && get_option('thread_comments'))
             wp_enqueue_script('comment-reply');
-        // Google Map
-        if (is_front_page())
-            wp_enqueue_script(
-                'google-maps',
-                'https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false'
-            );
     }
 }
 add_action('wp_enqueue_scripts', 'mppc_load_media');
@@ -143,48 +148,22 @@ add_filter('the_generator', 'remove_wp_version');
  * Create navigation
  */
 if (!function_exists('mppc_navigation')) {
-    class MPPC_Walker_Nav_Menu extends Walker_Nav_Menu {
-        function start_lvl(&$output, $depth = 0, $args = array()) {
-            $indent = str_repeat("\t", $depth);
-            $output .= "\n$indent<ul class=\"dropdown\">\n";
-        }
-    }
-    function mppc_navigation ($location = '', $fallback = 'wp_page_menu') {
+    require_once('functions/wp_bootstrap_navwalker.php');
+    function mppc_navigation ($location = '', $class = 'nav pull-right', 
+                              $depth = 2, $fallback = 'wp_page_menu') {
         $options = array(
-            'theme_location'    =>  $location,
             'container'         =>  false,
-            'depth'             =>  2,
-            'menu_class'        =>  'right',
-            'fallback_cb'       =>  $fallback,
+            'depth'             =>  $depth,
             'echo'              =>  false,
-            'walker'            =>  new MPPC_Walker_Nav_Menu
+            'fallback_cb'       =>  $fallback,
+            'menu_class'        =>  $class,
+            'theme_location'    =>  $location,
+            'walker'            =>  new wp_bootstrap_navwalker()
         );
 
         return wp_nav_menu($options);
     }
 }
-
-
-/*
- * Add parent class for dropdown
- */
-if (!function_exists('mppc_add_menu_parent_class')) {
-    function mppc_add_menu_parent_class ($items) {
-        $parents = array();
-        foreach ($items as $item) {
-            if ($item->menu_item_parent && $item->menu_item_parent > 0) {
-                $parents[] = $item->menu_item_parent;
-            }
-        }
-        foreach ($items as $item) {
-            if (in_array($item->ID, $parents)) {
-                $item->classes[] = 'has-dropdown'; 
-            }
-        }
-        return $items;
-    }
-}
-add_filter('wp_nav_menu_objects', 'mppc_add_menu_parent_class');
 
 
 /*

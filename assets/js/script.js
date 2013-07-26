@@ -1,68 +1,70 @@
 "use strict";
+
 (function($) {
-    var $this;
-
-    // Foundation
-    $(document).foundation();
-
     var $window = $(window);
-    var $title = $('.post-title');
-    var $main = $('.main');
-    var $margin;
+    var $jumbotron = $('.jumbotron');
+    var $masthead = $('.masthead');
+    var $navbar = $('#navigation');
+    var $height, $original_text;
 
-    // Search
-    $('.has-search a').click( function (e) {
-        $this = $(this);
+    // Adjust landing page layout
+    var resizeJumbotron = function () {
+        $height = $window.outerHeight() - $navbar.outerHeight();
+        $height = $height <= $masthead.height() + 100 ? $masthead.height() + 100 : $height;
+        $jumbotron.height($height);
 
-        e.preventDefault();
+        $masthead.fadeIn('slow').css('marginTop', ($height - $masthead.height()) / 2);
+    }
+    $window.load(resizeJumbotron);
+    $window.resize(resizeJumbotron);
 
-        $this.find('i').first().toggleClass('icon-remove');
-        $this.parent().toggleClass('searching')
-            .find('div.dropdown-search').slideToggle('fast');
+    // Fix/unfix navigation
+    $window.scroll(function () {
+        if ($(this).scrollTop() > $('.fix-nav').first().outerHeight())
+            $navbar.addClass('navbar-fixed-top');
+        else
+            $navbar.removeClass('navbar-fixed-top');
     });
 
-    // Background slideshow
-    $.backstretch([
-        template_uri + '/assets/img/background_2.jpg'
-        , template_uri + '/assets/img/background_3.jpg'
-        , template_uri + '/assets/img/background_4.jpg'
-        , template_uri + '/assets/img/background.jpg'
-    ], {centeredY: false, fade: 1000});
+    // Scroll to top
+    $('.top').click(function (e) {
+        e.preventDefault();
+       $('html, body').animate({scrollTop: 0}, 600, 'swing'); 
+    });
 
-    // Resize content
-    var resizeMargin = function () {
-        $margin = $window.height() - $('header').outerHeight()
-                     - $('.heading').outerHeight();
-
-        if ($('body').hasClass('admin-bar'))
-            $margin -= 28;
-
-        if (!$title.is(":visible")) {
-            $main.css('marginTop', $margin + 'px');
-        } else {
-            $main.css('marginTop', 0);
-            $title.css('margin', ($margin - $title.outerHeight()) / 2 + 'px auto');
-        }
-    };
-    resizeMargin();
-    $window.resize(resizeMargin);
-
-    // @TODO
-    /*$(window).scroll(function () {
-
-    });*/
-    
-    var options, map;
-    function initGoogleMaps () {
-        options = { 
-            zoom:               15,
-            center:             new google.maps.LatLng('3.134174', '101.698723'),
-            mapTypeId:          google.maps.MapTypeId.TERRAIN,
-            mapTypeControl:     false,
-            streetViewControl:  false,
-            scrollwheel:        false,
-        }
-        map = new google.maps.Map($('.map')[0], options);
+    // Hide/reveal countdown
+    var changeDateHeading = function ($context, $text) {
+        $context.stop(true).animate({'opacity': 0}, 250, function () {
+            $context[0].innerHTML = $text;
+        }).animate({'opacity': 1}, 250);
     }
-    google.maps.event.addDomListener(window, 'load', initGoogleMaps);
+    $('.masthead-heading__date').hover(function () {
+        $original_text = $original_text || $(this)[0].innerHTML;
+        changeDateHeading($(this), '32 DAYS TO GO...');
+    }, function () {
+        changeDateHeading($(this), $original_text);
+    })
+    
+    // Map
+    var CM_API = 'eabfb4a5974f48c298384b082b2b657f';
+    var MAP_ATT = '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors';
+    var map = L.map('map').setView([3.069081,101.604088], 16);
+    L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+        attribution: MAP_ATT,
+        maxZoom: 18
+    }).addTo(map);
+    L.marker([3.069081,101.604088]).addTo(map)
+        .bindPopup('Sunway Monash Residence (SMR) and Sunway University College')
+        .openPopup();
+    
+    // Twitter feed
+    $('#tweets').tweetable({
+        username: 'MPPC2013',
+        html5: true,
+        time: true,
+        rotate: true,
+        onComplete: function ($ul) {
+            $('time').timeago();
+        }
+    });
 }(jQuery));

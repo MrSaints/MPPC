@@ -1,35 +1,31 @@
-// Wordpress
-body.admin-bar header.fixed { top: 28px !important; }
-img#wpstats{ overflow:hidden; position:absolute; top:0; width:0px; height:0px; }
-.infinite-scroll .pager { display: none }
-
-// Facebook
-.fb-comments, .fb-comments span[style], .fb-comments iframe[style] { 
-    width: 100% !important;
+html, body {
+    @include stretch;
 }
 
-body {
-    background: image-url('background.jpg') no-repeat top center fixed;
-    @include background-size(cover);
-
-    &:after {
-        content: '';
-        background: transparent image-url('pattern.png') repeat top left;
-        bottom: 0;
-        left: 0;
-        position: fixed;
-        right: 0;
-        top: 0;
-    }
+.container, .container-fluid {
+    z-index: 1;
 }
 
-img { vertical-align: bottom }
-
-header, .block {
-    position: relative;
-    z-index: 5;
+/*
+ * Modifiers
+ */
+.mppc13 {
+    background: image-url('backgrounds/bg_pattern.png') repeat;
+}
+.text--dark-emboss {
+    text-shadow: 0 1px 2px #000;
+}
+.btn--flat {
+    @include border-radius(0);
 }
 
-header, .jumbotron {
-    font-family: 'Francois One', sans-serif;
+.no-js {
+    display: none;
+}
+.js {
+    display: block;
+}
+
+.main {
+    padding: 30px 0 20px;
 }

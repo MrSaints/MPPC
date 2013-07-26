@@ -1,12 +1,6 @@
-@media #{$xmedium} {
-    .action.learn:after {
-        content: 'Or' !important;
-    }
-}
-
-@media #{$small} {
-    .logo {
-        position: relative;
-        top: -35px;
+@media (max-width: 767px) {
+    .jumbotron, .map-container, .twitter-container, .footer {
+        margin-right: -20px;
+        margin-left: -20px;
     }
 }
