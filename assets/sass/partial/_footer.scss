@@ -1,0 +1,43 @@
+.twitter-container {
+    background: #2980b9;
+    padding: 20px;
+    .twitter-logo {
+        color: #2c3e50;
+        font-size: 50px;
+        text-align: right;
+    }
+}
+    .tweetList {
+        color: #ecf0f1;
+        font-size: 1.5em;
+        margin: 0;
+        a {
+            color: lighten(#2980b9, 30%);
+            &:hover {
+                color: lighten(#2980b9, 20%);
+            }
+        }
+        p {
+            margin: 0;
+        }
+        .timestamp {
+            color: #bdc3c7;
+            font-size: .8em;
+            margin-top: 5px;
+        }
+    }
+    
+.footer {
+    background: image-url('backgrounds/bg_pattern_3.png') repeat;
+    color: #7f8c8d;
+    padding: 15px 20px;
+    a {
+        color: #bdc3c7;
+        &:hover {
+            color: #95a5a6;
+        }
+    }
+}
+    .footer__navigation {
+        margin: 0;
+    }
