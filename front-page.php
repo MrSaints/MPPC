@@ -47,85 +47,87 @@
     </div>
 </div>
 
-<div class="container main">
-    <ul class="thumbnails">
-        <li class="span3">
-            <div class="thumbnail">
-                <img src="<?php echo get_template_directory_uri() ?>/assets/img/thumbs/icms.jpg" alt="">
-                <div class="caption">
-                    <h3>Organisers</h3>
-                    <p>
-                        Guided by the national interest, the International 
-                        Council of Malaysian Scholars and Associates (ICMS) 
-                        strives to promote <b>leadership development, intellectual 
-                        discourse and career opportunities</b> through the consolidation 
-                        of international networks
-                    </p>
-                    <p>
-                        <a href="#" class="btn btn-block btn-info">Learn More</a>
-                    </p>
-                </div>
-            </div>
-        </li>
-        <li class="span3">
-            <div class="thumbnail">
-                <img src="<?php echo get_template_directory_uri() ?>/assets/img/thumbs/mppc.jpg" alt="">
-                <div class="caption">
-                    <h3>Competition</h3>
-                    <p>
-                        The Malaysia Public Policy Competition (MPPC) is an annual
-                        <b>case-based competition</b>, set against the backdrop of <b>Malaysia
-                        public policy making</b>. It is aimed towards creating awareness 
-                        among participants regarding how public policies are made, 
-                        from conception to implementation
-                    </p>
-                    <p>
-                        <a href="#" class="btn btn-block btn-info">Learn More</a>
-                    </p>
-                </div>
-            </div>
-        </li>
-        <li class="span3">
-            <div class="thumbnail">
-                <img src="<?php echo get_template_directory_uri() ?>/assets/img/thumbs/prizes.jpg" alt="">
-                <div class="caption">
-                    <h3>Prizes</h3>
-                    <p>
-                        All participants shortlisted for the three-day MPPC 
-                        Residential Challenge are guaranteed participation awards 
-                        (a certificate and <b>RM 300 per team</b>). 
-                        The top four teams are also awarded for their achievement with 
-                        a <b>grand prize of RM 5,000 (including a certificate of achievement)</b>
-                    </p>
-                    <p>
-                        <a href="#" class="btn btn-block btn-info">Learn More</a>
-                    </p>
-                </div>
-            </div>
-        </li>
+<div class="main-wrapper">
+    <div class="container main">
+        <ul class="thumbnails">
             <li class="span3">
                 <div class="thumbnail">
-                    <img src="<?php echo get_template_directory_uri() ?>/assets/img/thumbs/sponsors.jpg" alt="">
+                    <img src="<?php echo get_template_directory_uri() ?>/assets/img/thumbs/icms.jpg" alt="">
                     <div class="caption">
-                        <h3><a href="#">Partners</a></h3>
+                        <h3>Organisers</h3>
                         <p>
-                            <ul>
-                                <li><a href="#">TalentCorp Malaysia</a></li>
-                                <li><a href="#">Jeffrey Cheah Foundation</a></li>
-                                <li><a href="#">The Institute of Chartered Accountants (ICAEW)</a></li>
-                            </ul>
+                            Guided by the national interest, the International 
+                            Council of Malaysian Scholars and Associates (ICMS) 
+                            strives to promote <b>leadership development, intellectual 
+                            discourse and career opportunities</b> through the consolidation 
+                            of international networks
                         </p>
-                        <h3><a href="#">Sponsors</a></h3>
                         <p>
-                            <ul>
-                                <li><a href="#">Maybank Group</a></li>
-                                <li><a href="#">PricewaterhouseCoopers</a></li>
-                            </ul>
+                            <a href="#" class="btn btn-block btn-info">Learn More</a>
                         </p>
                     </div>
                 </div>
             </li>
-    </ul>
+            <li class="span3">
+                <div class="thumbnail">
+                    <img src="<?php echo get_template_directory_uri() ?>/assets/img/thumbs/mppc.jpg" alt="">
+                    <div class="caption">
+                        <h3>Competition</h3>
+                        <p>
+                            The Malaysia Public Policy Competition (MPPC) is an annual
+                            <b>case-based competition</b>, set against the backdrop of <b>Malaysia
+                            public policy making</b>. It is aimed towards creating awareness 
+                            among participants regarding how public policies are made, 
+                            from conception to implementation
+                        </p>
+                        <p>
+                            <a href="#" class="btn btn-block btn-info">Learn More</a>
+                        </p>
+                    </div>
+                </div>
+            </li>
+            <li class="span3">
+                <div class="thumbnail">
+                    <img src="<?php echo get_template_directory_uri() ?>/assets/img/thumbs/prizes.jpg" alt="">
+                    <div class="caption">
+                        <h3>Prizes</h3>
+                        <p>
+                            All participants shortlisted for the three-day MPPC 
+                            Residential Challenge are guaranteed participation awards 
+                            (a certificate and <b>RM 300 per team</b>). 
+                            The top four teams are also awarded for their achievement with 
+                            a <b>grand prize of RM 5,000 (including a certificate of achievement)</b>
+                        </p>
+                        <p>
+                            <a href="#" class="btn btn-block btn-info">Learn More</a>
+                        </p>
+                    </div>
+                </div>
+            </li>
+                <li class="span3">
+                    <div class="thumbnail">
+                        <img src="<?php echo get_template_directory_uri() ?>/assets/img/thumbs/sponsors.jpg" alt="">
+                        <div class="caption">
+                            <h3><a href="#">Partners</a></h3>
+                            <p>
+                                <ul>
+                                    <li><a href="#">TalentCorp Malaysia</a></li>
+                                    <li><a href="#">Jeffrey Cheah Foundation</a></li>
+                                    <li><a href="#">The Institute of Chartered Accountants (ICAEW)</a></li>
+                                </ul>
+                            </p>
+                            <h3><a href="#">Sponsors</a></h3>
+                            <p>
+                                <ul>
+                                    <li><a href="#">Maybank Group</a></li>
+                                    <li><a href="#">PricewaterhouseCoopers</a></li>
+                                </ul>
+                            </p>
+                        </div>
+                    </div>
+                </li>
+        </ul>
+    </div>
 </div>
 
 <div class="map-container"><div id="map"></div></div>

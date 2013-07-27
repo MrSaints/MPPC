@@ -42,33 +42,47 @@ if (!function_exists('mppc_load_media')) {
             'google-web-fonts',
             'http://fonts.googleapis.com/css?family=Francois+One'
         );
-        wp_enqueue_style('mppc-style', get_stylesheet_uri(), array(), '2.0');
+        wp_enqueue_style('mppc-style', get_stylesheet_uri(), array('leaflet'), '2.0');
 
         /*
-         * JS Header
+         * JS header
          */
-        // jQuery (Latest)
-        wp_deregister_script('jquery');
-        wp_register_script('jquery', '//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js', false, '1.9.1');
-
         // Modernizr
         wp_enqueue_script('modernizr', '//cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js');
 
-        // Leaflet JS (Maps)
+        // Front page
         if (is_front_page()) {
+            // Leaflet JS (Maps)
             wp_enqueue_style(
                 'leaflet',
-                'http://cdn.leafletjs.com/leaflet-0.6.2/leaflet.css'
+                '//cdn.leafletjs.com/leaflet-0.6.2/leaflet.css'
             );
             wp_enqueue_script(
                 'leaflet',
-                'http://cdn.leafletjs.com/leaflet-0.6.2/leaflet.js'
+                '//cdn.leafletjs.com/leaflet-0.6.2/leaflet.js',
+                array('jquery'), '0.6.2', true
+            );
+
+            // BigVideo
+            wp_enqueue_script(
+                'video',
+                '//vjs.zencdn.net/4.1/video.js',
+                array('jquery'), '4.1', true
+            );
+            wp_enqueue_script(
+                'bigvideo',
+                get_template_directory_uri() . '/assets/js/vendor/bigvideo.js',
+                array('jquery', 'video'), '1', true
             );
         }
 
         /*
-         * JS Footer
+         * JS footer
          */
+        // jQuery (Latest)
+        wp_deregister_script('jquery');
+        wp_register_script('jquery', '//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js', 
+                            false, '1.9.1', true);
         // Bootstrap
         wp_enqueue_script(
             'bootstrap',

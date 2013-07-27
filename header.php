@@ -25,4 +25,6 @@
     <?php wp_head(); ?>
 </head>
 
-<body <?php body_class('mppc2013'); ?>>
+<body <?php body_class(); ?>>
+
+<div class="wrapper">

@@ -11,6 +11,10 @@
     var resizeJumbotron = function () {
         $height = $window.outerHeight() - $navbar.outerHeight();
         $height = $height <= $masthead.height() + 100 ? $masthead.height() + 100 : $height;
+
+        if ($('body').hasClass('admin-bar'))
+            $height -= 28;
+
         $jumbotron.height($height);
 
         $masthead.fadeIn('slow').css('marginTop', ($height - $masthead.height()) / 2);
@@ -67,4 +71,9 @@
             $('time').timeago();
         }
     });
+    
+    // BigVideo
+    var BV = new $.BigVideo();
+    BV.init();
+    BV.show(template_uri + '/assets/vids/kl_timelapse.mp4',{ambient:true});
 }(jQuery));
