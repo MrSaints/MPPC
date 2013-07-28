@@ -40,7 +40,7 @@ if (!function_exists('mppc_load_media')) {
         // CSS
         wp_enqueue_style(
             'google-web-fonts',
-            'http://fonts.googleapis.com/css?family=Francois+One'
+            'http://fonts.googleapis.com/css?family=Francois+One|Source+Sans+Pro:400,700'
         );
         wp_enqueue_style('mppc-style', get_stylesheet_uri(), array('leaflet'), '2.0');
 
